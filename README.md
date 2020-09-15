@@ -5,6 +5,7 @@ A small test application to show off my skills as a developer to Approchable Gee
 ## Requirements Accomplished
 
 Time Spent: **8h 35min** as of Sep 12 2020 10:30pm
+
 Time Spent: **10h 50min** as of Sep 14 2020 10:30pm
 
 - Use any mobile technology(s) you desire
