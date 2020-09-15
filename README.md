@@ -5,6 +5,7 @@ A small test application to show off my skills as a developer to Approchable Gee
 ## Requirements Accomplished
 
 Time Spent: **8h 35min** as of Sep 12 2020 10:30pm
+Time Spent: **10h 50min** as of Sep 14 2020 10:30pm
 
 - Use any mobile technology(s) you desire
 - Allow for users to edit their profile information including: name, number, email and bio
@@ -15,11 +16,12 @@ Time Spent: **8h 35min** as of Sep 12 2020 10:30pm
 - Please add any notes regarding how to run the project within the project readme (Note: We will be running the projects on MacOS)
 
 - Input validation complete
+- Put an image on the main page.
+- Allow for users to edit their profile photo
 
 ## Requirements still yet to accomplish
 
-- Put an image on the main page.
-- Allow for users to edit their profile photo
+Maybe I will add firebase to the app. 
 
 ## Installation / Setup
 
@@ -50,13 +52,13 @@ $ cd ..
 Start the Metro bundler.
 
 ```
-$ npx react-native start
+$ npm run start
 ```
 
 In a **new terminal tab** start the app on ios (this step may take a few min)
 
 ```
-$ npx react-native run-ios
+$ npm run ios
 ```
 
 
@@ -69,9 +71,9 @@ $ npm install
 $ cd ios
 $ pod install
 $ cd ..
-$ npx react-native start
+$ npm run start
 --> new tab
-$ npx react-native run-ios
+$ npm run ios
 ```
 
 

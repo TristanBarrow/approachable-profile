@@ -1,6 +1,7 @@
 import React from 'react';
 import { SafeAreaView, View, Text, StyleSheet } from 'react-native';
 import MenuItem from './MenuItem.js';
+import ProfileImage from './ProfileImage.js';
 
 // const template = require('../cradle/mainTemplate.js')
 
@@ -30,8 +31,10 @@ const MainProfile = (props) => {
         <SafeAreaView>
             <View style={styles.container}>
                 <Text style={styles.title}>Edit Profile</Text>
-                <View style={styles.image}>
-                </View>
+                <ProfileImage 
+                    source={props.source}
+                    onEdit={props.goToEditImage} 
+                /> 
                 <View style={styles.body}>
                     <MenuItem
                         label={'Name'}

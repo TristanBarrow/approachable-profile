@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "start": "react-native start",
+    "ios": "npx react-native run-ios",
+    "start": "npx react-native start",
+    "xcode": "xed ios",
     "test": "jest",
     "lint": "eslint ."
   },
@@ -15,8 +16,9 @@
     "@react-navigation/stack": "^5.9.0",
     "react": "16.13.1",
     "react-native": "0.63.2",
-    "react-native-fontawesome": "^7.0.0",
     "react-native-gesture-handler": "^1.8.0",
+    "react-native-image-crop-picker": "^0.34.1",
+    "react-native-imagepicker": "^2.0.0",
     "react-native-safe-area-context": "^3.1.7",
     "react-native-screens": "^2.10.1",
     "react-native-vector-icons": "^7.1.0"

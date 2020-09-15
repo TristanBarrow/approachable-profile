@@ -4,8 +4,8 @@ import EditName from './components/EditName.js';
 import EditPhone from './components/EditPhone.js';
 import EditEmail from './components/EditEmail.js';
 import EditAbout from './components/EditAbout.js';
+import EditImage from './components/EditImage.js';
 import { SafeAreaView, View, Text, StyleSheet } from 'react-native';
-
 
 const PAGES = {
   MAIN_PROFILE: 'MAIN_PROFILE',
@@ -13,6 +13,7 @@ const PAGES = {
   EDIT_PHONE: 'EDIT_PHONE',
   EDIT_EMAIL: 'EDIT_EMAIL',
   EDIT_ABOUT: 'EDIT_ABOUT',
+  EDIT_IMAGE: 'EDIT_IMAGE',
 }
 
 /*
@@ -22,7 +23,7 @@ const PAGES = {
 */
 
 // with this implementation I should probably have put this 
-// into a navigator componenet.
+// into a navigator componenet and not left it in App.js.
 const App = () => {
   const [page, setPage] = useState(PAGES.MAIN_PROFILE);
   const [firstName, setFirstName]   = useState('Tristan');
@@ -30,6 +31,10 @@ const App = () => {
   const [phone, setPhone] = useState('4254208943');
   const [email, setEmail] = useState('tristanmarkbarrow@gmail.com');
   const [about, setAbout] = useState('I mostly just listen to music.');
+  const [imageUri, setImageUri] = useState('');
+  const source = (imageUri === '') ? (
+    require('./res/profile.jpg')
+  ) : ({uri: imageUri, isStatic: true});
 
   const onSubmitName  = (_first, _last) => {
     setFirstName(_first);
@@ -37,10 +42,11 @@ const App = () => {
     setPage(PAGES.MAIN_PROFILE);
   }
 
-  const onSubmitPhone = (_phone) => {setPhone(_phone); setPage(PAGES.MAIN_PROFILE)}
-  const onSubmitEmail = (_email) => {setEmail(_email); setPage(PAGES.MAIN_PROFILE)}
-  const onSubmitAbout = (_about) => {setAbout(_about); setPage(PAGES.MAIN_PROFILE)}
-  console.log(phone)
+  const onSubmitPhone = (_phone) => {setPhone(_phone);  setPage(PAGES.MAIN_PROFILE)}
+  const onSubmitEmail = (_email) => {setEmail(_email);  setPage(PAGES.MAIN_PROFILE)}
+  const onSubmitAbout = (_about) => {setAbout(_about);  setPage(PAGES.MAIN_PROFILE)}
+  const onSubmitImage = (_url)   => {setImageUri(_url); setPage(PAGES.MAIN_PROFILE)}
+  
   if (page === PAGES.MAIN_PROFILE) {
     return (
       <SafeAreaView>
@@ -49,10 +55,12 @@ const App = () => {
           phone={phone}
           email={email}
           about={about}
+          source={source}
           goToName={()  => setPage(PAGES.EDIT_NAME)}
           goToPhone={() => setPage(PAGES.EDIT_PHONE)}
           goToEmail={() => setPage(PAGES.EDIT_EMAIL)}
           goToAbout={() => setPage(PAGES.EDIT_ABOUT)}
+          goToEditImage={() => setPage(PAGES.EDIT_IMAGE)}
           pages={PAGES}
         />
       </SafeAreaView> 
@@ -102,6 +110,17 @@ const App = () => {
         />
       </SafeAreaView> 
     )
+  } else if (page === PAGES.EDIT_IMAGE) {
+    return (
+      <SafeAreaView>
+        <EditImage 
+          goBack={() => setPage(PAGES.MAIN_PROFILE)} 
+          onSubmit={onSubmitImage}
+          setImage={setImageUri}
+          source={source}
+        />
+      </SafeAreaView>
+    );
   } else {
     return (
       <SafeAreaView>

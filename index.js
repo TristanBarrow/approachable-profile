@@ -5,8 +5,10 @@
 import {AppRegistry} from 'react-native';
 import App from './App';
 import {name as appName} from './app.json';
-import Icon from 'react-native-vector-icons/AntDesign';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-Icon.loadFont();
+MaterialIcons.loadFont();
+AntDesign.loadFont();
 
 AppRegistry.registerComponent(appName, () => App);
